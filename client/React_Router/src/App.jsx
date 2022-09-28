@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import Home from "./components/Home"
 import About from "./components/About"
 import Contact from "./components/Contact"
@@ -20,7 +20,10 @@ function App() {
           <Route path="profile" element={<Profile />}/>
           <Route path="profile/:id" element={<Dynamic />}/>
         </Route>
-        <Route path="*" element={<NoMatch />}/>
+        {/* {Redirecting For Unknown Routes} */}
+        <Route path="*" element={<Navigate to="/" replace/>}/>
+        {/* (Sending to NO Match Route For Unknown Routes) */}
+        {/* <Route path="*" element={<NoMatch />}/> */}
       </Routes>
     </div>
   )
